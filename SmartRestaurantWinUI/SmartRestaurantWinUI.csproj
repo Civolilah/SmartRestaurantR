@@ -288,7 +288,7 @@
       <Name>MobileApps</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartRestaurant.Model\SmartRestaurant.Model.csproj">
-      <Project>{b7ffd06d-15af-426f-9eb8-a3f0e60743bf}</Project>
+      <Project>{5889ad73-926f-4ad5-b936-ef4f0189cdc7}</Project>
       <Name>SmartRestaurant.Model</Name>
     </ProjectReference>
   </ItemGroup>
