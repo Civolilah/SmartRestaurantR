@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.ViewModels" xmlns:converters="clr-namespace:MobileApps.Converters" xmlns:input="http://xamarin.com/schemas/2014/forms/design" xmlns:vm1="clr-namespace:SmartRestaurant.Model.ViewModels;assembly=SmartRestaurant.Model"
+             x:Class="MobileApps.Views.NovaNarudzbaPage">
+    <ContentPage.BindingContext>
+        <vm:ProizvodiMainVM />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Naruči:"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" FontSize="22" FontAttributes="Bold"/>
+
+            <ListView ItemsSource="{Binding ListaPreporuka}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image WidthRequest="100" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label Text="PREPORUČENO!" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontAttributes="Bold" TextColor="Red"/>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="EndAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <input:CheckBox Margin="20" HeightRequest="40"  CheckedChanged="CheckBox_CheckedChanged" VerticalOptions="StartAndExpand">
+
+                                        </input:CheckBox>
+                                        <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                            <Picker Title="Količina:" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                                                <Picker.Items>
+                                                    <x:String>1</x:String>
+                                                    <x:String>2</x:String>
+                                                    <x:String>3</x:String>
+                                                    <x:String>4</x:String>
+                                                    <x:String>5</x:String>
+                                                    <x:String>6</x:String>
+                                                    <x:String>7</x:String>
+                                                    <x:String>8</x:String>
+                                                    <x:String>9</x:String>
+                                                    <x:String>10</x:String>
+                                                </Picker.Items>
+                                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                                            </Picker>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Margin="20" Orientation="Vertical">
+                <Label Text="Hrana:" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                </Label>
+            </StackLayout>
+
+            <ListView ItemsSource="{Binding ListaProizvodaHrana}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image WidthRequest="100" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="EndAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <input:CheckBox Margin="20" HeightRequest="40"  CheckedChanged="CheckBox_CheckedChanged" VerticalOptions="StartAndExpand">
+
+                                        </input:CheckBox>
+                                        <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                            <Picker Title="Količina:" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                                                <Picker.Items>
+                                                    <x:String>1</x:String>
+                                                    <x:String>2</x:String>
+                                                    <x:String>3</x:String>
+                                                    <x:String>4</x:String>
+                                                    <x:String>5</x:String>
+                                                    <x:String>6</x:String>
+                                                    <x:String>7</x:String>
+                                                    <x:String>8</x:String>
+                                                    <x:String>9</x:String>
+                                                    <x:String>10</x:String>
+                                                </Picker.Items>
+                                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                                            </Picker>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Margin="20" Orientation="Vertical">
+                <Label Text="Piće:" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                </Label>
+            </StackLayout>
+            <ListView ItemsSource="{Binding ListaProizvodaPice}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image WidthRequest="100" HeightRequest="100" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="EndAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <input:CheckBox Margin="20" HeightRequest="40"  CheckedChanged="CheckBox_CheckedChanged" VerticalOptions="StartAndExpand">
+
+                                        </input:CheckBox>
+                                        <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                            <Picker Title="Količina:" SelectedIndexChanged="Picker_SelectedIndexChanged" >
+                                                <Picker.Items>
+                                                    <x:String>1</x:String>
+                                                    <x:String>2</x:String>
+                                                    <x:String>3</x:String>
+                                                    <x:String>4</x:String>
+                                                    <x:String>5</x:String>
+                                                    <x:String>6</x:String>
+                                                    <x:String>7</x:String>
+                                                    <x:String>8</x:String>
+                                                    <x:String>9</x:String>
+                                                    <x:String>10</x:String>
+                                                </Picker.Items>
+                                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                                            </Picker>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Ukupna cijena: " HorizontalOptions="StartAndExpand"></Label>
+                    <Label Text="{Binding UkupnaCijena}" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="KM" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+            </StackLayout>
+            <Button Command="{Binding SpasiCommand}" Text="Snimi narudzbu">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

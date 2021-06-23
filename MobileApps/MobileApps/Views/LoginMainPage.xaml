@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.ViewModels"
+             x:Class="MobileApps.Views.LoginMainPage">
+
+    <ContentPage.BindingContext>
+        <vm:LoginVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Text="Korisničko ime:"/>
+            <Entry Text="{Binding UserName}" TextChanged="Entry_TextChanged"></Entry>
+            <Label Text="{Binding UserNameValidation}" TextColor="Red"/>
+            <Label Text="Password"/>
+            <Entry IsPassword="True" Text="{Binding PassWord}" TextChanged="Entry_TextChanged_1"></Entry>
+            <Label Text="{Binding PassWordValidation}" TextColor="Red"/>
+            <Button Command="{Binding Command}" Text="Login"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

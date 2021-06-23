@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.ViewModels"
+             x:Class="MobileApps.Views.PlatiOnlinePage">
+
+    <ContentPage.BindingContext>
+        <vm:PlatiOnlineVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ContentView>
+            <StackLayout Margin="25,0,25,0" BackgroundColor="White">
+                <StackLayout>
+                    <Label HorizontalOptions="Center"
+                   FontSize="20"
+                       Margin="0,80,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Narudžba:" FontSize="20" TextColor="Black"/>
+                                    <Span Text=" "></Span>
+                                    <Span Text="{Binding NazivNarudzbe}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                        <Entry x:Name="Number" Placeholder="Broj kartice" TextChanged="Number_changed" Unfocused="Number_unfocused" Text="{Binding Number}" Keyboard="Keyboard.Numeric"/>
+                        <Label x:Name="ErrorLabel_CardNumber"   TextColor="Red" FontSize="13" />
+                    </StackLayout>
+                    <StackLayout  Grid.Row="1" Grid.Column="0">
+                        <Entry x:Name="Month" Placeholder="MM" Text="{Binding ExpMonth}" TextChanged="Month_changed" Unfocused="Month_unfocused" ReturnType="Next" Keyboard="Keyboard.Numeric"/>
+                        <Label x:Name="ErrorLabel_Month"    TextColor="Red" FontSize="13"/>
+                    </StackLayout>
+                    <StackLayout  Grid.Row="1" Grid.Column="1">
+                        <Entry x:Name="Year" Placeholder="YY" Text="{Binding ExpYear}" TextChanged="Year_changed" Unfocused="Year_unfocused" ReturnType="Next" Keyboard="Keyboard.Numeric"/>
+                        <Label x:Name="ErrorLabel_Year"  TextColor="Red" FontSize="13"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                        <Entry x:Name="Cvv" Placeholder="Cvv kod" Text="{Binding Cvc}" TextChanged="Cvv_changed" Unfocused="Cvv_unfocused" ReturnType="Next" Keyboard="Keyboard.Numeric"/>
+                        <Label x:Name="ErrorLabel_Cvv"  TextColor="Red" FontSize="13" />
+                    </StackLayout>
+                </Grid>
+
+                <Label Text="{Binding Cijena, StringFormat='Cijena: {0:F0} KM'}"
+                   LineBreakMode="NoWrap"
+                   Padding="0, 0, 0, 0"
+                   FontAttributes="bold"
+                   FontSize="17" 
+                   Margin="0,-45,0,0"/>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" WidthRequest="10">
+                    <Button x:Name="Submit_Button" BorderRadius="10" Text="Submit" Command="{Binding SubmitCommand}" Padding="10, 10, 10 ,10" TextColor="black" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

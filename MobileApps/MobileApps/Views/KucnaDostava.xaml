@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.Views" xmlns:vm1="clr-namespace:MobileApps.ViewModels"
+             x:Class="MobileApps.Views.KucnaDostava">
+    <ContentPage.BindingContext>
+        <vm1:KucnaDostavaVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Text="Ime i prezime narucioca:"/>
+            <Entry Text="{Binding ImeIprezime}" TextChanged="Entry_TextChanged"></Entry>
+            <Label Text="{Binding KorisnickoImeValidation}" TextColor="Red"/>
+            <Label Text="Adresa"/>
+            <Entry Text="{Binding Adresa}" TextChanged="Entry_TextChanged_1"></Entry>
+            <Label Text="{Binding AdresaValidation}" TextColor="Red"/>
+            <Label Text="Broj telefona"/>
+            <Entry Text="{Binding BrojTelefona}" TextChanged="Entry_TextChanged_2"></Entry>
+            <Label Text="{Binding BrojTelefonaValidation}" TextColor="Red"/>
+            <Button Pressed="Button_Pressed"  Text="Kreiraj narudžbu"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

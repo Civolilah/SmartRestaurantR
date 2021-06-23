@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.ViewModels" xmlns:converters="clr-namespace:MobileApps.Converters"
+             x:Class="MobileApps.Views.ProizvodDetalji">
+    <ContentPage.BindingContext>
+        <vm:ProizvodDetaljiVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Detalji"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="22" FontAttributes="Bold"/>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding Ocjena}"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand" FontSize="12" FontAttributes="Bold"/>
+                </StackLayout>    
+            </StackLayout>
+            <Label></Label>
+            <Label></Label>
+            <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <Image WidthRequest="400" HeightRequest="200" Source="{Binding DetaljiProizvodaVMObj.Slika, Converter={StaticResource imgConv}}"></Image>
+                </StackLayout>
+                <StackLayout VerticalOptions="CenterAndExpand"  Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                        <Label Text="{Binding DetaljiProizvodaVMObj.KategorijaProizvoda}" 
+                           LineBreakMode="NoWrap" 
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="17" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                        <Label Text="{Binding DetaljiProizvodaVMObj.Opis}" HorizontalOptions="CenterAndExpand"  
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="End" WidthRequest="100">
+                        <Label Text="{Binding DetaljiProizvodaVMObj.KolicinaNaSkladistu}" HorizontalOptions="CenterAndExpand" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Ocjena:" 
+                               LineBreakMode="NoWrap" 
+                               Style="{DynamicResource ListItemTextStyle}" 
+                               FontSize="17" HorizontalOptions="StartAndExpand"/>
+                    <Picker WidthRequest="100" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>4</Picker.SelectedIndex>
+                    </Picker>
+                    <Button WidthRequest="100" Text="Ocijeni" Pressed="Button_Pressed"></Button>
+                    <Label></Label>
+                    <Label></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

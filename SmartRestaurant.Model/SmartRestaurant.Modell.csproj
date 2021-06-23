@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF7995D7-1EBC-41AC-B209-0F16410F0735}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartRestaurant.Model</RootNamespace>
+    <AssemblyName>SmartRestaurant.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JedinicaKolicine.cs" />
+    <Compile Include="KategorijaProizvoda.cs" />
+    <Compile Include="Korisnici.cs" />
+    <Compile Include="KorisnikNarudzba.cs" />
+    <Compile Include="KorisnikOcjena.cs" />
+    <Compile Include="KorisnikUloga.cs" />
+    <Compile Include="MjestoPosluzivanja.cs" />
+    <Compile Include="Narudzba.cs" />
+    <Compile Include="NarudzbaDetalji.cs" />
+    <Compile Include="NarudzbaProizvod.cs" />
+    <Compile Include="PodKategorijeProizvoda.cs" />
+    <Compile Include="Proizvod.cs" />
+    <Compile Include="ProizvodDetalji.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skladiste.cs" />
+    <Compile Include="StatusNarudzbe.cs" />
+    <Compile Include="Uloge.cs" />
+    <Compile Include="ViewModels\DetaljiNarudzbeVM.cs" />
+    <Compile Include="ViewModels\DetaljiProizvodaVM.cs" />
+    <Compile Include="ViewModels\FilterPregledVM.cs" />
+    <Compile Include="ViewModels\InsertNovogKorisnikaVM.cs" />
+    <Compile Include="ViewModels\InsertProizvodaVM.cs" />
+    <Compile Include="ViewModels\IspisNarudzbi.cs" />
+    <Compile Include="ViewModels\IzmjeniStatusNarudzbeVM.cs" />
+    <Compile Include="ViewModels\IzvjestajFilterVM.cs" />
+    <Compile Include="ViewModels\IzvjestajTabelaVM.cs" />
+    <Compile Include="ViewModels\IzvrsiUredjivanjeNarudzbeVM.cs" />
+    <Compile Include="ViewModels\KorisniciVM.cs" />
+    <Compile Include="ViewModels\Kucnadostavavm.cs" />
+    <Compile Include="ViewModels\NovaNarudzba.cs" />
+    <Compile Include="ViewModels\NoviProizvodVM.cs" />
+    <Compile Include="ViewModels\ObjectExtension.cs" />
+    <Compile Include="ViewModels\OcjenaProizvodaVM.cs" />
+    <Compile Include="ViewModels\PlatiNarudzbuVM.cs" />
+    <Compile Include="ViewModels\PregledVM.cs" />
+    <Compile Include="ViewModels\PretragaNarudzbiVM.cs" />
+    <Compile Include="ViewModels\PretragaProizvodaVM.cs" />
+    <Compile Include="ViewModels\ProizvodiVM.cs" />
+    <Compile Include="ViewModels\ProizvodNarudzbaDetaljiVM.cs" />
+    <Compile Include="ViewModels\PromjenaStatusaVM.cs" />
+    <Compile Include="ViewModels\StatusNarudzbeVM.cs" />
+    <Compile Include="ViewModels\UkupniIzvjestajVM.cs" />
+    <Compile Include="ViewModels\UrediNarudzbuProizvodVM.cs" />
+    <Compile Include="ViewModels\UrediNarudzbuVM.cs" />
+    <Compile Include="ViewModels\UrediStatusVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

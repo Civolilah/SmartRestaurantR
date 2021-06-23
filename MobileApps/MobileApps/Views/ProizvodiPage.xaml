@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileApps.ViewModels" xmlns:converters="clr-namespace:MobileApps.Converters" xmlns:input="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="MobileApps.Views.ProizvodiPage">
+
+    <ContentPage.BindingContext>
+        <vm:ProizvodiMainVM />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Menu:"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" FontSize="22" FontAttributes="Bold"/>
+            <ListView ItemsSource="{Binding ListaPreporuka}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="EndAndExpand">
+                                    <Label Text="PREPORUČENO!" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontAttributes="Bold" TextColor="Red"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Margin="20" Orientation="Vertical">
+                <Label Text="Hrana:" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                </Label>
+            </StackLayout>
+            <ListView ItemsSource="{Binding ListaProizvodaHrana}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Margin="20" Orientation="Vertical">
+                <Label Text="Piće:" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                </Label>
+            </StackLayout>
+            <ListView ItemsSource="{Binding ListaProizvodaPice}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cijena:" HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Cijena}" HorizontalOptions="CenterAndExpand"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           />
+                                        <Label Text="KM" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Pressed="Button_Pressed" Text="Nova narudžba" HorizontalOptions="StartAndExpand" WidthRequest="150"></Button>
+                <Button Pressed="Button_Pressed_1" Text="Kucna dostava" HorizontalOptions="CenterAndExpand" WidthRequest="150"></Button>
+                <Button Pressed="Button_Pressed_2" Text="Plati online" HorizontalOptions="EndAndExpand" WidthRequest="150"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
